@@ -189,4 +189,120 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    private void OnDrawGizmosSelected()
+    {
+        if (levels == null || levels.Count == 0)
+            return;
+
+        for (int i = 0; i < levels.Count; i++)
+        {
+            var level = levels[i];
+            if (level == null) continue;
+
+            Color levelColor = GetLevelColor(i);
+            
+            if (level.triggerArea != null)
+            {
+                Gizmos.color = new Color(levelColor.r, levelColor.g, levelColor.b, 0.3f);
+                Vector3 center = level.triggerArea.transform.TransformPoint(level.triggerArea.offset);
+                Vector3 size = new Vector3(
+                    level.triggerArea.size.x * level.triggerArea.transform.lossyScale.x,
+                    level.triggerArea.size.y * level.triggerArea.transform.lossyScale.y,
+                    0f
+                );
+                Gizmos.DrawCube(center, size);
+                
+                Gizmos.color = levelColor;
+                Gizmos.DrawWireCube(center, size);
+                
+                UnityEditor.Handles.color = levelColor;
+                UnityEditor.Handles.Label(center + Vector3.up * (size.y * 0.5f + 1f), 
+                    level.levelName ?? $"Level {i + 1}");
+            }
+            
+            if (level.cinemachineBoundary != null)
+            {
+                var points = level.cinemachineBoundary.points;
+                if (points.Length > 2)
+                {
+                    Gizmos.color = new Color(levelColor.r * 0.5f, levelColor.g * 0.5f, levelColor.b * 0.5f, 0.8f);
+                    Transform boundaryTransform = level.cinemachineBoundary.transform;
+                    
+                    for (int j = 0; j < points.Length; j++)
+                    {
+                        Vector3 currentPoint = boundaryTransform.TransformPoint(points[j]);
+                        Vector3 nextPoint = boundaryTransform.TransformPoint(points[(j + 1) % points.Length]);
+                        Gizmos.DrawLine(currentPoint, nextPoint);
+                    }
+                }
+            }
+            
+            if (level.ObjectSpawnPoint != null)
+            {
+                Gizmos.color = Color.green;
+                Vector3 spawnPos = level.ObjectSpawnPoint.transform.position;
+                
+                float crossSize = 0.5f;
+                Gizmos.DrawLine(spawnPos + Vector3.left * crossSize, spawnPos + Vector3.right * crossSize);
+                Gizmos.DrawLine(spawnPos + Vector3.up * crossSize, spawnPos + Vector3.down * crossSize);
+                
+                Gizmos.color = new Color(0f, 1f, 0f, 0.3f);
+                Gizmos.DrawSphere(spawnPos, 0.3f);
+                
+                UnityEditor.Handles.color = Color.green;
+                UnityEditor.Handles.Label(spawnPos + Vector3.up * 0.8f, "SPAWN");
+            }
+            
+            if (level.objectsToActivate != null)
+            {
+                Gizmos.color = Color.green;
+                foreach (var obj in level.objectsToActivate)
+                {
+                    if (obj != null)
+                    {
+                        Gizmos.DrawWireCube(obj.transform.position, Vector3.one * 0.2f);
+                    }
+                }
+            }
+            
+            if (level.objectsToDeactivate != null)
+            {
+                Gizmos.color = Color.red;
+                foreach (var obj in level.objectsToDeactivate)
+                {
+                    if (obj != null)
+                    {
+                        Gizmos.DrawWireCube(obj.transform.position, Vector3.one * 0.2f);
+                    }
+                }
+            }
+        }
+        
+        if (Application.isPlaying && currentLevel != null && player != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(player.position, 1f);
+            
+            UnityEditor.Handles.color = Color.yellow;
+            UnityEditor.Handles.Label(player.position + Vector3.up * 1.5f, 
+                $"Current: {currentLevel.levelName}");
+        }
+    }
+    
+    private Color GetLevelColor(int index)
+    {
+        Color[] colors = {
+            Color.cyan,
+            Color.magenta,
+            Color.yellow,
+            new Color(1f, 0.5f, 0f), 
+            new Color(0.5f, 0f, 1f), 
+            new Color(0f, 1f, 0.5f), 
+            new Color(1f, 0f, 0.5f),
+            new Color(0.5f, 1f, 0f) 
+        };
+        
+        return colors[index % colors.Length];
+    }
+    
 }
