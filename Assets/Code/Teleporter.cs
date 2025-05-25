@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class teleporter : MonoBehaviour
+public class Teleporter : MonoBehaviour
 {
     [Header("Visual Settings")]
     [SerializeField] private GameObject visualEffect;
@@ -9,10 +9,6 @@ public class teleporter : MonoBehaviour
     [Header("Teleport Settings")]
     [SerializeField] private bool preserveMomentum = true;
     [SerializeField] private float teleportCooldown = 0.5f;
-    
-    [Header("Level Settings")]
-    [SerializeField] private string levelId; // Identifier for which level this teleporter belongs to
-    [SerializeField] private string teleporterName; // Optional name for the teleporter
 
     public bool CanTeleportTo { get; private set; } = true;
     private float cooldownTimer = 0f;
@@ -35,30 +31,12 @@ public class teleporter : MonoBehaviour
         cooldownTimer = teleportCooldown;
     }
 
-    public bool ShouldPreserveMomentum()
-    {
-        return preserveMomentum;
-    }
-    
-    public string GetLevelId()
-    {
-        return levelId;
-    }
-    
-    public string GetTeleporterName()
-    {
-        return string.IsNullOrEmpty(teleporterName) ? gameObject.name : teleporterName;
-    }
+    public bool ShouldPreserveMomentum() => preserveMomentum;
 
     private void OnDrawGizmos()
     {
         Gizmos.color = portalColor;
         Gizmos.DrawWireSphere(transform.position, 0.5f);
         Gizmos.DrawLine(transform.position, transform.position + transform.up * 1.5f);
-        
-        // Display level ID in scene view
-#if UNITY_EDITOR
-        UnityEditor.Handles.Label(transform.position + Vector3.up * 0.75f, levelId);
-#endif
     }
 }

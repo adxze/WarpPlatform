@@ -39,7 +39,7 @@ public class Killer : MonoBehaviour
             TeleportManager teleport = FindFirstObjectByType<TeleportManager>().GetComponent<TeleportManager>();
             teleport.enabled = false;
             
-            GameManager.instance.respawnAfter(1);
+            GameManager.instance.RespawnAfter(1);
             
 
 
