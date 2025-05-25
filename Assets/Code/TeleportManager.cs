@@ -7,24 +7,19 @@ public class TeleportManager : MonoBehaviour
 {
     [Header("Teleport Settings")]
     [SerializeField] private KeyCode teleportKey = KeyCode.F;
-    [SerializeField] private KeyCode cycleTeleportersKey = KeyCode.Tab; // For cycling between teleporters
     [SerializeField] private float teleportCooldown = 1.0f;
     [SerializeField] private GameObject teleportEffect;
     
     [Header("UI References")]
-    [SerializeField] private TextMeshProUGUI teleporterInfoText; // Optional UI to show current teleporter
+    [SerializeField] private TextMeshProUGUI teleporterInfoText; 
     
     private bool canTeleport = true;
     private float cooldownTimer = 0f;
     private PlayerController playerController;
-    private teleporter currentTeleportPoint;
     
-    // All teleporters by level
     private Dictionary<string, List<teleporter>> teleportersByLevel = new Dictionary<string, List<teleporter>>();
-    private string currentLevelId = ""; // Current level the player is in
-    private int currentTeleporterIndex = 0; // Index of selected teleporter in current level
+    private string currentLevelId = ""; 
     
-    // Reference to game manager to get current level
     private GameManager gameManager;
 
     private void Awake()
@@ -32,10 +27,8 @@ public class TeleportManager : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         gameManager = FindObjectOfType<GameManager>();
         
-        // Find and organize all teleporters by level
         FindAllTeleporters();
         
-        // Hide teleporter info text if it exists
         if (teleporterInfoText != null)
             teleporterInfoText.gameObject.SetActive(false);
     }
@@ -44,10 +37,8 @@ public class TeleportManager : MonoBehaviour
     {
         teleporter[] allTeleporters = FindObjectsOfType<teleporter>();
         
-        // Clear and rebuild the dictionary
         teleportersByLevel.Clear();
         
-        // Organize teleporters by level
         foreach (teleporter tp in allTeleporters)
         {
             string levelId = tp.GetLevelId();
@@ -69,21 +60,17 @@ public class TeleportManager : MonoBehaviour
 
     private void Update()
     {
-        // Update current level if game manager exists
         if (gameManager != null)
         {
             string newLevelId = gameManager.GetCurrentLevelId();
             
-            // If level changed, reset teleporter selection
             if (newLevelId != currentLevelId)
             {
                 currentLevelId = newLevelId;
-                currentTeleporterIndex = 0;
-                UpdateCurrentTeleporter();
+                UpdateTeleporterInfo();
             }
         }
         
-        // Handle cooldown
         if (!canTeleport)
         {
             cooldownTimer -= Time.deltaTime;
@@ -92,66 +79,85 @@ public class TeleportManager : MonoBehaviour
                 canTeleport = true;
             }
         }
-        
-        // Cycle between teleporters in current level
-        if (Input.GetKeyDown(cycleTeleportersKey) && teleportersByLevel.ContainsKey(currentLevelId))
-        {
-            List<teleporter> availableTeleporters = teleportersByLevel[currentLevelId];
-            
-            if (availableTeleporters.Count > 0)
-            {
-                currentTeleporterIndex = (currentTeleporterIndex + 1) % availableTeleporters.Count;
-                UpdateCurrentTeleporter();
-            }
-        }
 
-        // Teleport input
-        if (Input.GetKeyDown(teleportKey) && canTeleport && currentTeleportPoint != null)
+        if (Input.GetKeyDown(teleportKey) && canTeleport)
         {
-            if (currentTeleportPoint.CanTeleportTo)
+            TeleportToAvailablePortal();
+        }
+    }
+    
+    private void UpdateTeleporterInfo()
+    {
+        // Update UI to show available teleporters in current level
+        if (teleporterInfoText != null)
+        {
+            if (teleportersByLevel.ContainsKey(currentLevelId) && teleportersByLevel[currentLevelId].Count > 0)
             {
-                StartCoroutine(TeleportPlayer());
+                int availableCount = GetAvailableTeleportersCount();
+                if (availableCount > 0)
+                {
+                    teleporterInfoText.text = $"Teleporters available: {availableCount}";
+                    teleporterInfoText.gameObject.SetActive(true);
+                }
+                else
+                {
+                    teleporterInfoText.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                teleporterInfoText.gameObject.SetActive(false);
             }
         }
     }
     
-    private void UpdateCurrentTeleporter()
+    private int GetAvailableTeleportersCount()
     {
-        // Clear current selection
-        currentTeleportPoint = null;
-        
-        // If no teleporters in this level, return
+        if (!teleportersByLevel.ContainsKey(currentLevelId))
+            return 0;
+            
+        int count = 0;
+        foreach (teleporter tp in teleportersByLevel[currentLevelId])
+        {
+            if (tp.CanTeleportTo)
+                count++;
+        }
+        return count;
+    }
+    
+    private void TeleportToAvailablePortal()
+    {
         if (!teleportersByLevel.ContainsKey(currentLevelId) || teleportersByLevel[currentLevelId].Count == 0)
         {
-            if (teleporterInfoText != null)
-            {
-                teleporterInfoText.gameObject.SetActive(false);
-            }
+            Debug.Log("No teleporters available in current level");
             return;
         }
         
-        List<teleporter> availableTeleporters = teleportersByLevel[currentLevelId];
-        
-        // Ensure index is valid
-        if (currentTeleporterIndex >= availableTeleporters.Count)
-            currentTeleporterIndex = 0;
-        
-        // Set current teleporter
-        currentTeleportPoint = availableTeleporters[currentTeleporterIndex];
-        
-        // Update UI
-        if (teleporterInfoText != null && currentTeleportPoint != null)
+        teleporter availableTeleporter = null;
+        foreach (teleporter tp in teleportersByLevel[currentLevelId])
         {
-            teleporterInfoText.text = $"Teleporter: {currentTeleportPoint.GetTeleporterName()} ({currentTeleporterIndex + 1}/{availableTeleporters.Count})";
-            teleporterInfoText.gameObject.SetActive(true);
+            if (tp.CanTeleportTo)
+            {
+                availableTeleporter = tp;
+                break;
+            }
+        }
+        
+        if (availableTeleporter != null)
+        {
+            StartCoroutine(TeleportPlayer(availableTeleporter));
+        }
+        else
+        {
+            Debug.Log("No available teleporters in current level (all on cooldown)");
         }
     }
 
-    private IEnumerator TeleportPlayer()
+    private IEnumerator TeleportPlayer(teleporter targetTeleporter)
     {
         canTeleport = false;
         cooldownTimer = teleportCooldown;
-        currentTeleportPoint.StartCooldown();
+        targetTeleporter.StartCooldown();
 
         Rigidbody2D playerRb = playerController.GetComponent<Rigidbody2D>();
         Vector2 playerVelocity = playerRb.velocity;
@@ -163,9 +169,9 @@ public class TeleportManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.05f);
 
-        playerController.transform.position = currentTeleportPoint.transform.position;
+        playerController.transform.position = targetTeleporter.transform.position;
 
-        if (currentTeleportPoint.ShouldPreserveMomentum())
+        if (targetTeleporter.ShouldPreserveMomentum())
         {
             playerRb.velocity = playerVelocity;
         }
@@ -178,9 +184,10 @@ public class TeleportManager : MonoBehaviour
         {
             Instantiate(teleportEffect, playerController.transform.position, Quaternion.identity);
         }
+        
+        UpdateTeleporterInfo();
     }
 
-    // This can be called when player unlocks a new teleporter
     public void AddTeleporter(teleporter newTeleporter)
     {
         string levelId = newTeleporter.GetLevelId();
@@ -195,10 +202,9 @@ public class TeleportManager : MonoBehaviour
             teleportersByLevel[levelId].Add(newTeleporter);
         }
         
-        // If this is for the current level, update the selection
         if (levelId == currentLevelId)
         {
-            UpdateCurrentTeleporter();
+            UpdateTeleporterInfo();
         }
     }
 }

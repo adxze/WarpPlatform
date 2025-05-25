@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
         if (levelText != null)
             levelText.gameObject.SetActive(false);
     }
+
     
     private void Update()
     {

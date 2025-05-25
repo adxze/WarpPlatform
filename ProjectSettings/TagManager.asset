@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Ground
   - Wall
-  - 
+  - front
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Player/Default
     uniqueID: 2101424519
+    locked: 0
+  - name: Frontground
+    uniqueID: 1276687679
     locked: 0

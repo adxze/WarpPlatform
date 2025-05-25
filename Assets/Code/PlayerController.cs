@@ -72,8 +72,10 @@ public class PlayerController : MonoBehaviour
     #region Ground Check Parameters
     [Header("Ground Check Parameters")]
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundCheckRadius = 0.2f;
+    // [SerializeField] private float groundCheckRadius = 0.2f;
+    [SerializeField] private Vector2 groundCheckSize = new Vector2(0.8f, 0.01f); 
     [SerializeField] private LayerMask groundLayer;
+    
     #endregion
 
     // Component References
@@ -584,15 +586,15 @@ public class PlayerController : MonoBehaviour
     private void CheckGrounded()
     {
         bool wasGrounded = isGrounded;
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        
+        isGrounded = Physics2D.OverlapBox(groundCheck.position, groundCheckSize, 0f, groundLayer); // Changed from OverlapCircle
+    
         if (isGrounded)
         {
             lastGroundedTime = Time.time;
             lastGroundedNormal = Vector2.up;
-            
+        
             isJumping = false;
-            
+        
             // Only enable double jump when grounded if double jump is unlocked
             canDoubleJump = canDoubleJumpUnlocked;
         }
@@ -736,9 +738,9 @@ public class PlayerController : MonoBehaviour
         if (groundCheck != null)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+            Gizmos.DrawWireCube(groundCheck.position, groundCheckSize); // Changed from DrawWireSphere
         }
-        
+    
         Gizmos.color = Color.red;
         Vector2 wallCheckDirection = isFacingRight ? Vector2.right : Vector2.left;
         Gizmos.DrawLine(transform.position, (Vector2)transform.position + wallCheckDirection * wallCheckDistance);
