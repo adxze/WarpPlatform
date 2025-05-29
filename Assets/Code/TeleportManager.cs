@@ -16,11 +16,14 @@ public class TeleportManager : MonoBehaviour
     private float cooldownTimer = 0f;
     private PlayerController playerController;
     private GameManager gameManager;
+    private Animator animator;
     
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
         gameManager = FindObjectOfType<GameManager>();
+        animator = GetComponent<Animator>();
+
         
         if (teleporterInfoText != null)
             teleporterInfoText.gameObject.SetActive(false);
@@ -90,6 +93,8 @@ public class TeleportManager : MonoBehaviour
             if (teleporter != null && teleporter.gameObject.activeInHierarchy && teleporter.CanTeleportTo)
             {
                 StartCoroutine(TeleportPlayer(teleporter));
+                // here is animation teleport 
+                
                 return;
             }
         }
@@ -97,23 +102,25 @@ public class TeleportManager : MonoBehaviour
         Debug.Log("No available teleporters");
     }
 
+    
     private IEnumerator TeleportPlayer(Teleporter targetTeleporter)
     {
         canTeleport = false;
         cooldownTimer = teleportCooldown;
-        targetTeleporter.StartCooldown();
 
         var playerRb = playerController.GetComponent<Rigidbody2D>();
         Vector2 playerVelocity = playerRb.velocity;
 
-        // Teleport effect at start position
         if (teleportEffect != null)
             Instantiate(teleportEffect, playerController.transform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(0.05f);
 
-        // Teleport
         playerController.transform.position = targetTeleporter.transform.position;
+
+        targetTeleporter.PlayTeleportAnimation();
+    
+        targetTeleporter.StartCooldown();
 
         // Handle momentum
         if (targetTeleporter.ShouldPreserveMomentum())
@@ -121,10 +128,11 @@ public class TeleportManager : MonoBehaviour
         else
             playerRb.velocity = Vector2.zero;
 
-        // Teleport effect at end position
         if (teleportEffect != null)
             Instantiate(teleportEffect, playerController.transform.position, Quaternion.identity);
-        
+
         UpdateTeleporterInfo();
     }
+
+
 }
