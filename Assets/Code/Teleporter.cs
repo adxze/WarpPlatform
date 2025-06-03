@@ -10,14 +10,15 @@ public class Teleporter : MonoBehaviour
     
     [Header("Teleport Settings")]
     [SerializeField] private bool preserveMomentum = true;
-    [SerializeField] private float teleportCooldown = 2.0f; 
+    [SerializeField] private float teleportCooldown = 2.0f;
+    [SerializeField] private float animationDuration = 1f; // NEW: Separate animation duration
 
     public bool CanTeleportTo { get; private set; } = true;
     private float cooldownTimer = 0f;
     private TeleportManager teleportManager;
     private Animator teleanim;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         teleanim = GetComponent<Animator>();
         teleportManager = FindObjectOfType<TeleportManager>();
@@ -31,8 +32,7 @@ public class Teleporter : MonoBehaviour
             if (cooldownTimer <= 0)
             {
                 CanTeleportTo = true;
-                // Return to idle when cooldown is over
-                ReturnToIdle();
+                // No longer calling ReturnToIdle here since animation handles itself
             }
         }
     }
@@ -49,8 +49,25 @@ public class Teleporter : MonoBehaviour
     {
         if (teleanim != null)
         {
-            teleanim.SetBool("isActive", true);
+            // Start the animation and automatically stop it after animationDuration
+            StartCoroutine(PlayAnimationForDuration());
+            
+            
+            // Play particle effect when portal is used
+            if (visualEffect != null)
+            {
+                GameObject effect = Instantiate(visualEffect, transform.position, Quaternion.identity);
+        
+                Destroy(effect, 3f);
+            }
         }
+    }
+
+    private IEnumerator PlayAnimationForDuration()
+    {
+        teleanim.SetBool("isActive", true);
+        yield return new WaitForSeconds(animationDuration);
+        teleanim.SetBool("isActive", false);
     }
 
     public void ReturnToIdle()
@@ -61,7 +78,7 @@ public class Teleporter : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
         Gizmos.color = portalColor;
         Gizmos.DrawWireSphere(transform.position, 0.5f);

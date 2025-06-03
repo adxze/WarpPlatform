@@ -83,23 +83,41 @@ public class TeleportManager : MonoBehaviour
     
     private void TeleportToAvailablePortal()
     {
-        if (gameManager == null) return;
+        if (gameManager == null) 
+        {
+            Debug.Log("GameManager is null!");
+            return;
+        }
         
         var teleporters = gameManager.GetCurrentLevelTeleporters();
+        Debug.Log($"Found {teleporters.Length} total teleporters");
         
         // Find first available teleporter
         foreach (var teleporter in teleporters)
         {
+            Debug.Log($"Checking teleporter: {teleporter.name}");
+            Debug.Log($"  - Active: {teleporter.gameObject.activeInHierarchy}");
+            Debug.Log($"  - CanTeleportTo: {teleporter.CanTeleportTo}");
+            Debug.Log($"  - Type: {teleporter.GetType().Name}");
+            
             if (teleporter != null && teleporter.gameObject.activeInHierarchy && teleporter.CanTeleportTo)
             {
+                Debug.Log($"Teleporting to {teleporter.name}");
                 StartCoroutine(TeleportPlayer(teleporter));
-                // here is animation teleport 
-                
                 return;
             }
         }
         
-        Debug.Log("No available teleporters");
+        Debug.Log("No available teleporters found!");
+        
+        // Additional debug: Check if MovingTeleporter exists in scene
+        MovingTeleporter[] movingTeleporters = FindObjectsOfType<MovingTeleporter>();
+        Debug.Log($"Found {movingTeleporters.Length} MovingTeleporter objects in scene");
+        
+        foreach (var mt in movingTeleporters)
+        {
+            Debug.Log($"MovingTeleporter {mt.name}: CanTeleportTo = {mt.CanTeleportTo}");
+        }
     }
 
     
@@ -120,6 +138,7 @@ public class TeleportManager : MonoBehaviour
 
         targetTeleporter.PlayTeleportAnimation();
     
+        Debug.Log($"Starting cooldown for {targetTeleporter.name}");
         targetTeleporter.StartCooldown();
 
         // Handle momentum
@@ -133,6 +152,4 @@ public class TeleportManager : MonoBehaviour
 
         UpdateTeleporterInfo();
     }
-
-
 }

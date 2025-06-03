@@ -1,0 +1,810 @@
+fileFormatVersion: 2
+guid: 4506d42946c544e478eced825d1ba7e8
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: laser_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7, y: 35}
+        - {x: 9, y: 35}
+        - {x: 11, y: 36}
+        - {x: 12, y: 38}
+        - {x: 14, y: 38}
+        - {x: 16, y: 40}
+        - {x: 16, y: 48}
+        - {x: -16, y: 48}
+        - {x: -16, y: 40}
+        - {x: -14, y: 38}
+        - {x: -11, y: 38}
+        - {x: -10, y: 35}
+        - {x: -7, y: 35}
+        - {x: -7, y: 31}
+        - {x: -4, y: 28}
+        - {x: -3, y: 28}
+        - {x: -1, y: 25}
+        - {x: 1, y: 25}
+        - {x: 3, y: 27}
+        - {x: 3, y: 28}
+        - {x: 7, y: 31}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 4bef9eb5b467c4d80a251ebc1da238a3
+      internalID: 1148881654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7, y: 35}
+        - {x: 9, y: 35}
+        - {x: 11, y: 36}
+        - {x: 12, y: 38}
+        - {x: 14, y: 38}
+        - {x: 16, y: 40}
+        - {x: 16, y: 48}
+        - {x: -16, y: 48}
+        - {x: -16, y: 40}
+        - {x: -14, y: 38}
+        - {x: -11, y: 38}
+        - {x: -10, y: 35}
+        - {x: -7, y: 35}
+        - {x: -7, y: 31}
+        - {x: -4, y: 28}
+        - {x: -4, y: 26}
+        - {x: -1, y: 23}
+        - {x: 1, y: 23}
+        - {x: 4, y: 26}
+        - {x: 4, y: 28}
+        - {x: 7, y: 31}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 13835d1225dca4b3d97b088e7731bafe
+      internalID: 1441082274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7, y: 35}
+        - {x: 9, y: 35}
+        - {x: 11, y: 36}
+        - {x: 12, y: 38}
+        - {x: 14, y: 38}
+        - {x: 16, y: 40}
+        - {x: 16, y: 48}
+        - {x: -16, y: 48}
+        - {x: -16, y: 40}
+        - {x: -14, y: 38}
+        - {x: -11, y: 38}
+        - {x: -10, y: 35}
+        - {x: -7, y: 35}
+        - {x: -7, y: 31}
+        - {x: -5, y: 29}
+        - {x: -5, y: 26}
+        - {x: -1, y: 22}
+        - {x: 1, y: 22}
+        - {x: 5, y: 26}
+        - {x: 5, y: 29}
+        - {x: 7, y: 31}
+      tessellationDetail: 1
+      bones: []
+      spriteID: c68f374fc0f0e48cf85179646a5ab6af
+      internalID: 1125896613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: -35}
+        - {x: 3, y: -34}
+        - {x: 4, y: -33}
+        - {x: 4, y: -26}
+        - {x: 3, y: -25}
+        - {x: 4, y: -24}
+        - {x: 4, y: -17}
+        - {x: 3, y: -16}
+        - {x: 4, y: -15}
+        - {x: 4, y: -12}
+        - {x: 3, y: -11}
+        - {x: 4, y: -10}
+        - {x: 4, y: -3}
+        - {x: 3, y: -2}
+        - {x: 4, y: -1}
+        - {x: 4, y: 6}
+        - {x: 3, y: 7}
+        - {x: 4, y: 8}
+        - {x: 4, y: 15}
+        - {x: 3, y: 16}
+        - {x: 4, y: 17}
+        - {x: 4, y: 26}
+        - {x: 5, y: 27}
+        - {x: 5, y: 29}
+        - {x: 7, y: 31}
+        - {x: 7, y: 35}
+        - {x: 9, y: 35}
+        - {x: 11, y: 36}
+        - {x: 12, y: 38}
+        - {x: 14, y: 38}
+        - {x: 16, y: 40}
+        - {x: 16, y: 48}
+        - {x: -16, y: 48}
+        - {x: -16, y: 40}
+        - {x: -14, y: 38}
+        - {x: -11, y: 38}
+        - {x: -10, y: 35}
+        - {x: -7, y: 35}
+        - {x: -7, y: 31}
+        - {x: -5, y: 29}
+        - {x: -5, y: 27}
+        - {x: -4, y: 26}
+        - {x: -4, y: 17}
+        - {x: -3, y: 16}
+        - {x: -4, y: 15}
+        - {x: -4, y: 8}
+        - {x: -3, y: 7}
+        - {x: -4, y: 6}
+        - {x: -4, y: -1}
+        - {x: -3, y: -2}
+        - {x: -4, y: -3}
+        - {x: -4, y: -10}
+        - {x: -3, y: -11}
+        - {x: -4, y: -12}
+        - {x: -4, y: -15}
+        - {x: -3, y: -16}
+        - {x: -4, y: -17}
+        - {x: -4, y: -24}
+        - {x: -3, y: -25}
+        - {x: -4, y: -26}
+        - {x: -4, y: -33}
+        - {x: -3, y: -34}
+        - {x: -4, y: -35}
+        - {x: -4, y: -42}
+        - {x: -3, y: -43}
+        - {x: -7, y: -47}
+        - {x: -7, y: -48}
+        - {x: 7, y: -48}
+        - {x: 7, y: -47}
+        - {x: 3, y: -43}
+        - {x: 4, y: -42}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 35026a088ad0b4e60b17dbb0eeee89a8
+      internalID: -1101677673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: -36}
+        - {x: 3, y: -35}
+        - {x: 4, y: -34}
+        - {x: 4, y: -27}
+        - {x: 3, y: -26}
+        - {x: 4, y: -25}
+        - {x: 4, y: -18}
+        - {x: 3, y: -17}
+        - {x: 4, y: -16}
+        - {x: 4, y: -13}
+        - {x: 3, y: -12}
+        - {x: 4, y: -11}
+        - {x: 4, y: -4}
+        - {x: 3, y: -3}
+        - {x: 4, y: -2}
+        - {x: 4, y: 5}
+        - {x: 3, y: 6}
+        - {x: 4, y: 7}
+        - {x: 4, y: 14}
+        - {x: 3, y: 15}
+        - {x: 4, y: 16}
+        - {x: 4, y: 26}
+        - {x: 5, y: 27}
+        - {x: 5, y: 29}
+        - {x: 7, y: 31}
+        - {x: 7, y: 35}
+        - {x: 9, y: 35}
+        - {x: 11, y: 36}
+        - {x: 12, y: 38}
+        - {x: 14, y: 38}
+        - {x: 16, y: 40}
+        - {x: 16, y: 48}
+        - {x: -16, y: 48}
+        - {x: -16, y: 40}
+        - {x: -14, y: 38}
+        - {x: -11, y: 38}
+        - {x: -10, y: 35}
+        - {x: -7, y: 35}
+        - {x: -7, y: 31}
+        - {x: -5, y: 29}
+        - {x: -5, y: 27}
+        - {x: -4, y: 26}
+        - {x: -4, y: 16}
+        - {x: -3, y: 15}
+        - {x: -4, y: 14}
+        - {x: -4, y: 7}
+        - {x: -3, y: 6}
+        - {x: -4, y: 5}
+        - {x: -4, y: -2}
+        - {x: -3, y: -3}
+        - {x: -4, y: -4}
+        - {x: -4, y: -11}
+        - {x: -3, y: -12}
+        - {x: -4, y: -13}
+        - {x: -4, y: -16}
+        - {x: -3, y: -17}
+        - {x: -4, y: -18}
+        - {x: -4, y: -25}
+        - {x: -3, y: -26}
+        - {x: -4, y: -27}
+        - {x: -4, y: -34}
+        - {x: -3, y: -35}
+        - {x: -4, y: -36}
+        - {x: -4, y: -43}
+        - {x: -3, y: -44}
+        - {x: -6, y: -47}
+        - {x: -6, y: -48}
+        - {x: 6, y: -48}
+        - {x: 6, y: -47}
+        - {x: 3, y: -44}
+        - {x: 4, y: -43}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 956562eb531d342b286b7e251b657580
+      internalID: 125240853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 3, y: -36}
+        - {x: 4, y: -35}
+        - {x: 4, y: -28}
+        - {x: 3, y: -27}
+        - {x: 4, y: -26}
+        - {x: 4, y: -19}
+        - {x: 3, y: -18}
+        - {x: 4, y: -17}
+        - {x: 4, y: -14}
+        - {x: 3, y: -13}
+        - {x: 4, y: -12}
+        - {x: 4, y: -5}
+        - {x: 3, y: -4}
+        - {x: 4, y: -3}
+        - {x: 4, y: 4}
+        - {x: 3, y: 5}
+        - {x: 4, y: 6}
+        - {x: 4, y: 13}
+        - {x: 3, y: 14}
+        - {x: 4, y: 15}
+        - {x: 4, y: 26}
+        - {x: 5, y: 27}
+        - {x: 5, y: 29}
+        - {x: 7, y: 31}
+        - {x: 7, y: 35}
+        - {x: 9, y: 35}
+        - {x: 11, y: 36}
+        - {x: 12, y: 38}
+        - {x: 14, y: 38}
+        - {x: 16, y: 40}
+        - {x: 16, y: 48}
+        - {x: -16, y: 48}
+        - {x: -16, y: 40}
+        - {x: -14, y: 38}
+        - {x: -11, y: 38}
+        - {x: -10, y: 35}
+        - {x: -7, y: 35}
+        - {x: -7, y: 31}
+        - {x: -5, y: 29}
+        - {x: -5, y: 27}
+        - {x: -4, y: 26}
+        - {x: -4, y: 15}
+        - {x: -3, y: 14}
+        - {x: -4, y: 13}
+        - {x: -4, y: 6}
+        - {x: -3, y: 5}
+        - {x: -4, y: 4}
+        - {x: -4, y: -3}
+        - {x: -3, y: -4}
+        - {x: -4, y: -5}
+        - {x: -4, y: -12}
+        - {x: -3, y: -13}
+        - {x: -4, y: -14}
+        - {x: -4, y: -17}
+        - {x: -3, y: -18}
+        - {x: -4, y: -19}
+        - {x: -4, y: -26}
+        - {x: -3, y: -27}
+        - {x: -4, y: -28}
+        - {x: -4, y: -35}
+        - {x: -3, y: -36}
+        - {x: -4, y: -37}
+        - {x: -4, y: -45}
+        - {x: -6, y: -47}
+        - {x: -6, y: -48}
+        - {x: 6, y: -48}
+        - {x: 6, y: -47}
+        - {x: 4, y: -45}
+        - {x: 4, y: -37}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 960d936d3b569436ab1d76c5b1f91338
+      internalID: -762344946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: -35}
+        - {x: 3, y: -34}
+        - {x: 4, y: -33}
+        - {x: 4, y: -26}
+        - {x: 3, y: -25}
+        - {x: 4, y: -24}
+        - {x: 4, y: -17}
+        - {x: 3, y: -16}
+        - {x: 4, y: -15}
+        - {x: 4, y: -12}
+        - {x: 3, y: -11}
+        - {x: 4, y: -10}
+        - {x: 4, y: -3}
+        - {x: 3, y: -2}
+        - {x: 4, y: -1}
+        - {x: 4, y: 6}
+        - {x: 3, y: 7}
+        - {x: 4, y: 8}
+        - {x: 4, y: 15}
+        - {x: 3, y: 16}
+        - {x: 4, y: 17}
+        - {x: 4, y: 26}
+        - {x: 5, y: 27}
+        - {x: 5, y: 29}
+        - {x: 7, y: 31}
+        - {x: 7, y: 35}
+        - {x: 9, y: 35}
+        - {x: 11, y: 36}
+        - {x: 12, y: 38}
+        - {x: 14, y: 38}
+        - {x: 16, y: 40}
+        - {x: 16, y: 48}
+        - {x: -16, y: 48}
+        - {x: -16, y: 40}
+        - {x: -14, y: 38}
+        - {x: -11, y: 38}
+        - {x: -10, y: 35}
+        - {x: -7, y: 35}
+        - {x: -7, y: 31}
+        - {x: -5, y: 29}
+        - {x: -5, y: 27}
+        - {x: -4, y: 26}
+        - {x: -4, y: 17}
+        - {x: -3, y: 16}
+        - {x: -4, y: 15}
+        - {x: -4, y: 8}
+        - {x: -3, y: 7}
+        - {x: -4, y: 6}
+        - {x: -4, y: -1}
+        - {x: -3, y: -2}
+        - {x: -4, y: -3}
+        - {x: -4, y: -10}
+        - {x: -3, y: -11}
+        - {x: -4, y: -12}
+        - {x: -4, y: -15}
+        - {x: -3, y: -16}
+        - {x: -4, y: -17}
+        - {x: -4, y: -24}
+        - {x: -3, y: -25}
+        - {x: -4, y: -26}
+        - {x: -4, y: -33}
+        - {x: -3, y: -34}
+        - {x: -4, y: -35}
+        - {x: -4, y: -42}
+        - {x: -3, y: -43}
+        - {x: -7, y: -47}
+        - {x: -7, y: -48}
+        - {x: 7, y: -48}
+        - {x: 7, y: -47}
+        - {x: 3, y: -43}
+        - {x: 4, y: -42}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 8fb179ad61c384f059a4abdd01d85f1a
+      internalID: 516673729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 4, y: -36}
+        - {x: 3, y: -35}
+        - {x: 4, y: -34}
+        - {x: 4, y: -27}
+        - {x: 3, y: -26}
+        - {x: 4, y: -25}
+        - {x: 4, y: -18}
+        - {x: 3, y: -17}
+        - {x: 4, y: -16}
+        - {x: 4, y: -13}
+        - {x: 3, y: -12}
+        - {x: 4, y: -11}
+        - {x: 4, y: -4}
+        - {x: 3, y: -3}
+        - {x: 4, y: -2}
+        - {x: 4, y: 5}
+        - {x: 3, y: 6}
+        - {x: 4, y: 7}
+        - {x: 4, y: 14}
+        - {x: 3, y: 15}
+        - {x: 4, y: 16}
+        - {x: 4, y: 26}
+        - {x: 5, y: 27}
+        - {x: 5, y: 29}
+        - {x: 7, y: 31}
+        - {x: 7, y: 35}
+        - {x: 9, y: 35}
+        - {x: 11, y: 36}
+        - {x: 12, y: 38}
+        - {x: 14, y: 38}
+        - {x: 16, y: 40}
+        - {x: 16, y: 48}
+        - {x: -16, y: 48}
+        - {x: -16, y: 40}
+        - {x: -14, y: 38}
+        - {x: -11, y: 38}
+        - {x: -10, y: 35}
+        - {x: -7, y: 35}
+        - {x: -7, y: 31}
+        - {x: -5, y: 29}
+        - {x: -5, y: 27}
+        - {x: -4, y: 26}
+        - {x: -4, y: 16}
+        - {x: -3, y: 15}
+        - {x: -4, y: 14}
+        - {x: -4, y: 7}
+        - {x: -3, y: 6}
+        - {x: -4, y: 5}
+        - {x: -4, y: -2}
+        - {x: -3, y: -3}
+        - {x: -4, y: -4}
+        - {x: -4, y: -11}
+        - {x: -3, y: -12}
+        - {x: -4, y: -13}
+        - {x: -4, y: -16}
+        - {x: -3, y: -17}
+        - {x: -4, y: -18}
+        - {x: -4, y: -25}
+        - {x: -3, y: -26}
+        - {x: -4, y: -27}
+        - {x: -4, y: -34}
+        - {x: -3, y: -35}
+        - {x: -4, y: -36}
+        - {x: -4, y: -43}
+        - {x: -3, y: -44}
+        - {x: -6, y: -47}
+        - {x: -6, y: -48}
+        - {x: 6, y: -48}
+        - {x: 6, y: -47}
+        - {x: 3, y: -44}
+        - {x: 4, y: -43}
+      tessellationDetail: 1
+      bones: []
+      spriteID: 23d809bfa262d4ccd95d2518e4bd7082
+      internalID: -912506953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 3, y: -36}
+        - {x: 4, y: -35}
+        - {x: 4, y: -28}
+        - {x: 3, y: -27}
+        - {x: 4, y: -26}
+        - {x: 4, y: -19}
+        - {x: 3, y: -18}
+        - {x: 4, y: -17}
+        - {x: 4, y: -14}
+        - {x: 3, y: -13}
+        - {x: 4, y: -12}
+        - {x: 4, y: -5}
+        - {x: 3, y: -4}
+        - {x: 4, y: -3}
+        - {x: 4, y: 4}
+        - {x: 3, y: 5}
+        - {x: 4, y: 6}
+        - {x: 4, y: 13}
+        - {x: 3, y: 14}
+        - {x: 4, y: 15}
+        - {x: 4, y: 26}
+        - {x: 5, y: 27}
+        - {x: 5, y: 29}
+        - {x: 7, y: 31}
+        - {x: 7, y: 35}
+        - {x: 9, y: 35}
+        - {x: 11, y: 36}
+        - {x: 12, y: 38}
+        - {x: 14, y: 38}
+        - {x: 16, y: 40}
+        - {x: 16, y: 48}
+        - {x: -16, y: 48}
+        - {x: -16, y: 40}
+        - {x: -14, y: 38}
+        - {x: -11, y: 38}
+        - {x: -10, y: 35}
+        - {x: -7, y: 35}
+        - {x: -7, y: 31}
+        - {x: -5, y: 29}
+        - {x: -5, y: 27}
+        - {x: -4, y: 26}
+        - {x: -4, y: 15}
+        - {x: -3, y: 14}
+        - {x: -4, y: 13}
+        - {x: -4, y: 6}
+        - {x: -3, y: 5}
+        - {x: -4, y: 4}
+        - {x: -4, y: -3}
+        - {x: -3, y: -4}
+        - {x: -4, y: -5}
+        - {x: -4, y: -12}
+        - {x: -3, y: -13}
+        - {x: -4, y: -14}
+        - {x: -4, y: -17}
+        - {x: -3, y: -18}
+        - {x: -4, y: -19}
+        - {x: -4, y: -26}
+        - {x: -3, y: -27}
+        - {x: -4, y: -28}
+        - {x: -4, y: -35}
+        - {x: -3, y: -36}
+        - {x: -4, y: -37}
+        - {x: -4, y: -45}
+        - {x: -6, y: -47}
+        - {x: -6, y: -48}
+        - {x: 6, y: -48}
+        - {x: 6, y: -47}
+        - {x: 4, y: -45}
+        - {x: 4, y: -37}
+      tessellationDetail: 1
+      bones: []
+      spriteID: bd76fb695dea24b1d9d4ef7ff8dd7e6b
+      internalID: 1979114820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      laser_0: 1148881654
+      laser_1: 1441082274
+      laser_2: 1125896613
+      laser_3: -1101677673
+      laser_4: 125240853
+      laser_5: -762344946
+      laser_6: 516673729
+      laser_7: -912506953
+      laser_8: 1979114820
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

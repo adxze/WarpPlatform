@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
@@ -104,14 +105,18 @@ public class PauseMenuController : MonoBehaviour
     
     public void QuitGame()
     {
-        Debug.Log("Quitting Game...");
+        // Debug.Log("Quitting Game...");
+        //
+        // #if UNITY_EDITOR
+        // UnityEditor.EditorApplication.isPlaying = false;
+        // #else
+        // // In build
+        // Application.Quit();
+        // #endif
         
-        #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #else
-        // In build
-        Application.Quit();
-        #endif
+        gameIsPaused = false;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
     }
     
     public bool IsGamePaused()
