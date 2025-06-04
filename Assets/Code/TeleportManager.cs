@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
+
+
 public class TeleportManager : MonoBehaviour
 {
     [Header("Teleport Settings")]
@@ -18,8 +20,11 @@ public class TeleportManager : MonoBehaviour
     private GameManager gameManager;
     private Animator animator;
     
+    AudioManager audioManager;
+    
     private void Awake()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         playerController = FindObjectOfType<PlayerController>();
         gameManager = FindObjectOfType<GameManager>();
         animator = GetComponent<Animator>();
@@ -90,19 +95,15 @@ public class TeleportManager : MonoBehaviour
         }
         
         var teleporters = gameManager.GetCurrentLevelTeleporters();
-        Debug.Log($"Found {teleporters.Length} total teleporters");
         
         // Find first available teleporter
         foreach (var teleporter in teleporters)
         {
-            Debug.Log($"Checking teleporter: {teleporter.name}");
-            Debug.Log($"  - Active: {teleporter.gameObject.activeInHierarchy}");
-            Debug.Log($"  - CanTeleportTo: {teleporter.CanTeleportTo}");
-            Debug.Log($"  - Type: {teleporter.GetType().Name}");
-            
+
             if (teleporter != null && teleporter.gameObject.activeInHierarchy && teleporter.CanTeleportTo)
             {
                 Debug.Log($"Teleporting to {teleporter.name}");
+                audioManager.playSFX(audioManager.portals);
                 StartCoroutine(TeleportPlayer(teleporter));
                 return;
             }

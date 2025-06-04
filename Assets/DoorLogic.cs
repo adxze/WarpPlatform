@@ -15,16 +15,17 @@ public class DoorLogic : MonoBehaviour
     [SerializeField] private float keyTimer = 1f; 
     
     private bool canUseKey = true;
-    private Coroutine closeDoorCoroutine; // Track door timer
+    private Coroutine closeDoorCoroutine; 
     
-    // For sprite animation 
     
     [SerializeField] Animator[] doorAnimator;
     
-    
+    private AudioManager audioManager;
     private void Awake()
     {
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -39,11 +40,12 @@ public class DoorLogic : MonoBehaviour
     {
         foreach (Collider2D collider in doorCollider)
         {
-            if (collider != null) // Check individual collider, not array
+            if (collider != null) 
             {
                 collider.enabled = false;
                 foreach (Animator animator in doorAnimator)
                 {
+                    audioManager.playSFX(audioManager.laser, 0.19f);
                     animator.SetBool("isActive", true);
                 }
                 // doorAnimator.SetBool("isActive", true);
@@ -73,6 +75,7 @@ public class DoorLogic : MonoBehaviour
         CloseDoor();
         foreach (Animator animator in doorAnimator)
         {
+            audioManager.playSFX(audioManager.laserBack, 0.2f);
             animator.SetBool("isActive", false);
         }
         // doorAnimator.SetBool("isActive", false);
@@ -83,7 +86,7 @@ public class DoorLogic : MonoBehaviour
     {
         foreach (Collider2D collider in doorCollider)
         {
-            if (collider != null) // Check individual collider
+            if (collider != null) 
             {
                 collider.enabled = true;
             }

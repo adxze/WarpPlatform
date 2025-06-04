@@ -31,8 +31,11 @@ public class DirectionalBooster : MonoBehaviour
     private Rigidbody2D playerRb;
     private AudioSource audioSource;
     
+    private AudioManager audioManager;
+    
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         UpdateBoostVector();
         
         if (boostSound != null && GetComponent<AudioSource>() == null)
@@ -116,6 +119,8 @@ public class DirectionalBooster : MonoBehaviour
                 {
                     boostEffect.Play();
                 }
+                
+                
                 
                 if (audioSource != null && boostSound != null)
                 {

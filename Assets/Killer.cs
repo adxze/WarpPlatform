@@ -24,6 +24,13 @@ public class Killer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager audioManager = FindObjectOfType<AudioManager>();
+            if (audioManager != null)
+            {
+                // audioManager.playSFX(audioManager.death);
+                audioManager.playSFX(audioManager.death, 0.5f);
+            }
+
             Animator anim = other.GetComponent<Animator>();
             anim.SetTrigger("Death");
             

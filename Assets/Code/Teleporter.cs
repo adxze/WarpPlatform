@@ -49,11 +49,9 @@ public class Teleporter : MonoBehaviour
     {
         if (teleanim != null)
         {
-            // Start the animation and automatically stop it after animationDuration
             StartCoroutine(PlayAnimationForDuration());
             
             
-            // Play particle effect when portal is used
             if (visualEffect != null)
             {
                 GameObject effect = Instantiate(visualEffect, transform.position, Quaternion.identity);
