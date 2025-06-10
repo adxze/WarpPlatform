@@ -71,7 +71,6 @@ The following controls are available for gameplay and ability progression:
 | Shift       | Sprint*                     |
 | E           | Dash*                       |
 | Ctrl        | Slide*                      |
-| S           | Crouch/Drop through platform|
 | Esc         | Pause menu                  |
 
 **Note: Abilities marked with * must be unlocked through gameplay progression or not added yet* 
