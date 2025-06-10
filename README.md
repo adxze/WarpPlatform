@@ -1,18 +1,13 @@
 <table>
   <tr>
     <td align="left" width="50%">
-      <img width="100%" alt="gif1" src="">
+      <img width="100%" alt="gif1" src="https://github.com/adxze/adxze/blob/main/0604(2).gif">
     </td>
     <td align="right" width="50%">
-      <img width="100%" alt="gif2" src="">
+      <img width="100%" alt="gif2" src="https://github.com/adxze/adxze/blob/main/0604(3).gif">
     </td>
   </tr>
 </table>
-
-<p align="center">
-  <img width="100%" alt="gif3" src="">
-</p>
-
 ## 🎮Scripts and Features
 
 The advanced 2D platformer mechanics including progressive ability unlocks, teleportation system, level management, and dynamic audio are powered by a comprehensive scripting system that creates a unique gameplay experience.
