@@ -123,18 +123,13 @@ public class SaveSystem : MonoBehaviour
     
     #region Public Methods for UI
     
-    /// <summary>
-    /// Call this function to clear all save data and start from level 1
-    /// </summary>
+   
     public void ClearSaveDataAndStartFromLevel1()
     {
        try
         {
-            // Reset save data to default values
             currentSaveData = new SaveData();
             
-            // Delete the save file if it exists
-            if (File.Exists(savePath))
             {
                 File.Delete(savePath);
                 Debug.Log("Save file deleted successfully!");
