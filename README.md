@@ -20,7 +20,7 @@ The advanced 2D platformer mechanics including progressive ability unlocks, tele
 | `MovingTeleporter.cs`          | Dynamic teleporter that moves between waypoints, extending base teleporter functionality |
 | `GameManager.cs`               | Comprehensive level management with save system, camera boundaries, and teleporter activation |
 | `DirectionalBooster.cs`        | Physics-based boost pads with customizable directions and force application methods |
-| `AudioManager.cs`              | Dynamic audio system that adapts background music and SFX based on current scene |
+| `AudioManager.cs`              | adapts background music and SFX based on current scene |
 | `SaveSystem.cs`                | Progress persistence allowing players to continue from their last reached level |
 
 <br>
