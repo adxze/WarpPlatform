@@ -8,6 +8,7 @@
     </td>
   </tr>
 </table>
+
 ## 🎮Scripts and Features
 
 The advanced 2D platformer mechanics including progressive ability unlocks, teleportation system, level management, and dynamic audio are powered by a comprehensive scripting system that creates a unique gameplay experience.
