@@ -97,3 +97,8 @@ The following controls are available for gameplay and ability progression:
 
 <a href="#">Play Now</a>
 <br>
+
+
+
+
+![Platform Demo](https://raw.githubusercontent.com/adxze/adxze/main/PlatfromSlide.png)
