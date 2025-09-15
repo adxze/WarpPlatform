@@ -23,7 +23,7 @@ flowchart LR
   es -- "Main Menu" --> mm
 
 ```
-## Layer Design 
+## Layer / module Design 
 
 ```mermaid
 ---
@@ -99,32 +99,27 @@ graph TD
 ```
 
 
-## 🎮Scripts and Features
+## Modules and Features
 
 The advanced 2D platformer mechanics including progressive ability unlocks, teleportation system, level management, and dynamic audio are powered by a comprehensive scripting system that creates a unique gameplay experience.
 
 | 📂 Name | 🎬 Scene | 📋 Responsibility |
 |---------|----------|-------------------|
-| `PlayerController.cs` | **Gameplay** | - Advanced player movement system<br/>- Progressive ability unlock (double jump, wall jump, sprint, dash, slide)<br/>- Handle player input and physics |
-| `TeleportManager.cs` | **Gameplay** | - Core teleportation system management<br/>- Allow players to warp between active teleporters using J key<br/>- Manage teleporter states and cooldowns |
-| `Teleporter.cs` | **Gameplay** | - Base teleporter functionality with visual effects<br/>- Handle teleporter activation and momentum preservation<br/>- Manage teleporter cooldowns |
-| `MovingTeleporter.cs` | **Gameplay** | - Dynamic teleporter that moves between waypoints<br/>- Extend base teleporter functionality<br/>- Handle moving teleporter physics |
-| `GameManager.cs` | **Gameplay** | - Comprehensive level management with save system<br/>- Manage camera boundaries and teleporter activation<br/>- Handle game state transitions |
-| `DirectionalBooster.cs` | **Gameplay** | - Physics-based boost pads with customizable directions<br/>- Apply force using different methods<br/>- Handle boost pad visual effects |
-| `AudioManager.cs` | **Main Menu**<br/>**Gameplay** <br/> **End Credit**| - Adapt background music and SFX based on current scene<br/>- Set audio volume and mute controls<br/>- Manage audio transitions |
-| `SaveSystem.cs` | **Persistent** | - Progress persistence allowing players to continue from last reached level<br/>- Store and load setting data<br/>- Handle save data validation |
+| **MainMenu** | **Main Menu** | - Show main menu UI<br/>- Load gameplay scene when player click play button<br/>- Exit game when player exit the game |
+| **Setting** | **Main Menu**<br/>**Gameplay** | - Show setting menu (UI)<br/>- Set audio settings<br/>- Configure game preferences |
+| **Audio** | **Main Menu**<br/>**Gameplay** | - Play audio (BGM & SFX)<br/>- Set audio volume<br/>- Set audio mute & unmute |
+| **PlayerController** | **Gameplay** | - Move player with progressive abilities<br/>- Handle double jump, wall jump, sprint, dash, slide<br/>- Process player input and physics |
+| **TeleportationSystem** | **Gameplay** | - Handle teleportation between portals using J key<br/>- Manage teleporter activation and cooldowns<br/>- Support moving teleporters with waypoints |
+| **LevelManager** | **Gameplay** | - Manage level progression and boundaries<br/>- Handle camera boundaries and transitions<br/>- Activate teleporters based on context |
+| **GameplayMenu** | **Gameplay** | - Handle and show pause game<br/>- Go to main menu when user click main menu button<br/>- Exit game when player click exit game |
+| **GameOver** | **Gameplay** | - Show game over panel<br/>- Handle retry & return to main menu<br/>- Manage end screen transitions |
+| **PowerUpSystem** | **Gameplay** | - Store and manage power up data available in game<br/>- Spawn power ups throughout levels<br/>- Detect power up triggers and apply effects |
+| **PhysicsSystem** | **Gameplay** | - Handle directional boost pads<br/>- Apply physics-based movement forces<br/>- Manage collision detection and responses |
+| **SaveSystem** | **Persistent** | - Store setting data and game progress<br/>- Save and load setting data<br/>- Enable progress persistence across sessions |
+
 
 <br>
 
-## 🔴About
-
-WarpPlatform is a 2D platformer where you unlock new movement abilities and navigate levels using teleportation mechanics. Players progress through stages by mastering abilities like double jumping, wall jumping, dashing, and sliding while using strategic teleportation between portals to solve platforming challenges.
-<br>
-
-## 👤Developer & Contributions
-
-- adxze (Game Developer & Systems Designer)
-  <br>
 
 ## Game Flow Chart
 
@@ -227,37 +222,31 @@ classDiagram
 
 
 ```
-<br>
 
-## 🎯Game Controls
-
-The following controls are available for gameplay and ability progression:
-
-| Key Binding | Function                    |
-| ----------- | --------------------------- |
-| A/D         | Move left/right             |
-| W/Space     | Jump / Double Jump*         |
-| J           | Teleport to available portal|
-| Shift       | Sprint*                     |
-| E           | Dash*                       |
-| Ctrl        | Slide*                      |
-| Esc         | Pause menu                  |
-
-**Note: Abilities marked with * must be unlocked through gameplay progression or not added yet* 
 
 <br>
 
-## ⚡Key Features
 
-**Physics-Based Movement**: Realistic movement system with proper momentum, gravity, and force calculations that create smooth and responsive character control.
+## eveloper & Contributions
 
-**Teleportation Mechanics**: Master the unique J-key teleportation system to warp between active portals, including moving teleporters that add dynamic puzzle elements.
+- adxze (Game Developer & Systems Designer)
+  <br>
 
-**Level Management**: Seamless level transitions with automatic save system, dynamic camera boundaries, and context-sensitive teleporter activation.
+## About
+
+WarpPlatform is a 2D platformer where you unlock new movement abilities and navigate levels using teleportation mechanics. Players progress through stages by mastering abilities like double jumping, wall jumping, dashing, and sliding while using strategic teleportation between portals to solve platforming challenges.
+<br>
+
+## Key Features
+
+**Physics-Based Movement**: Fast paced movement system with proper momentum, gravity, and force calculations that create smooth and responsive character control.
+
+**Teleportation Mechanics**: the unique J-key teleportation system to warp between active portals, including moving teleporters that add dynamic puzzle elements.
+
 
 <br>
 
-## 🕹️Play Game
+## Play The Game
 
 <a href="#">Play Now</a>
 <br>
