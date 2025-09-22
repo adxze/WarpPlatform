@@ -1,3 +1,20 @@
+## Developer & Contributions
+
+adxze (Game Developer & Systems Designer)
+  <br>
+
+## About
+
+WarpPlatform is a 2D platformer where you unlock new movement abilities and navigate levels using teleportation mechanics. Players progress through stages by mastering abilities like double jumping, wall jumping, dashing, and sliding while using strategic teleportation between portals to solve platforming challenges.
+<br>
+
+## Key Features
+
+**Physics-Based Movement**: Fast paced movement system with proper momentum, gravity, and force calculations that create smooth and responsive character control.
+
+**Teleportation Mechanics**: the unique J-key teleportation system to warp between active portals, including moving teleporters that add dynamic puzzle elements.
+
+
 <table>
   <tr>
     <td align="left" width="50%">
@@ -227,21 +244,7 @@ classDiagram
 <br>
 
 
-## eveloper & Contributions
 
-- adxze (Game Developer & Systems Designer)
-  <br>
-
-## About
-
-WarpPlatform is a 2D platformer where you unlock new movement abilities and navigate levels using teleportation mechanics. Players progress through stages by mastering abilities like double jumping, wall jumping, dashing, and sliding while using strategic teleportation between portals to solve platforming challenges.
-<br>
-
-## Key Features
-
-**Physics-Based Movement**: Fast paced movement system with proper momentum, gravity, and force calculations that create smooth and responsive character control.
-
-**Teleportation Mechanics**: the unique J-key teleportation system to warp between active portals, including moving teleporters that add dynamic puzzle elements.
 
 
 <br>
